@@ -79,17 +79,17 @@ register_env(my_env, lambda x: ParallelPettingZooEnv(CustomEnvironment()))
 config = (  # 1. Configure the algorithm,
     PPOConfig()
     .environment(my_env)
-    .rollouts(num_rollout_workers=1)
+    .rollouts(num_rollout_workers=5)
     .framework("torch")
     .training(model={"custom_model": TorchActionMaskModel})
-    .evaluation(evaluation_num_workers=1,evaluation_interval=1)
+    .evaluation(evaluation_num_workers=2,evaluation_interval=2)
 )
 config.environment(disable_env_checking=True)
 config["model"]["no_final_linear"] = False
 
 algo = config.build()  # 2. build the algorithm,
 
-for _ in range(1):
+for _ in range(50):
     print(algo.train())  # 3. train it,
 
 algo.save()

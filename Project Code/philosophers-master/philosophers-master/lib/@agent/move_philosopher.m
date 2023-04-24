@@ -1,4 +1,9 @@
 function move_philosopher(obj)
+
+while obj.path(obj.curr_pos_idx) == obj.path(obj.curr_pos_idx+1)
+    obj.curr_pos_idx = obj.curr_pos_idx + 1
+end
+
 if obj.curr_pos_idx == length(obj.path)
     return
 end

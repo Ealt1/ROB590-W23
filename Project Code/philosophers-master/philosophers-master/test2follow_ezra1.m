@@ -11,12 +11,12 @@ numCols = 8;
 % individual paths
 Paths = {[7 8 11 14 17 16]};
 Paths = {fliplr([5:3:20])};
-Paths{end+1} = fliplr([5:3:20]);
-Paths{end+1} = [9 8:3:17 18];
+Paths{end+1} = fliplr([6:3:21]);
+Paths{end+1} = [9 9 8:3:17 18];
 % Number of robots
 N = length(Paths);
 % Obstacles
-obstacles = [10 12 13 15];
+obstacles = [];
 % Unique Initial and Final Locations
 initial_locations = zeros(1,N);
 final_locations = zeros(1,N);
